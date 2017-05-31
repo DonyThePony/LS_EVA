@@ -8,5 +8,5 @@
     <updateXml>true</updateXml>
     <warLocation></warLocation>
     <extraInfo></extraInfo>
-    <webPath>/LS_EV</webPath>
+    <webPath>/eva</webPath>
 </tomcatProjectProperties>
