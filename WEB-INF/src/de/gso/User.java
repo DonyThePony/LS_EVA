@@ -5,6 +5,11 @@ public class User {
 	private String nachname;
 	private String email;
 	
+	
+	/*
+	 * User Klasse mit simplen Getter Methoden. Dient als Datencontainer.
+	 * 
+	 */
 	public User(String vorname, String nachname, String email){
 		this.vorname = vorname;
 		this.nachname = nachname;
