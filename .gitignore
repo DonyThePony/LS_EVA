@@ -1,0 +1,42 @@
+## tomcat specific
+WEB-INF/classes/
+applets/classes/
+work/org/
+updateservice/
+logs/logFiles/
+temp/
+
+## use this folder for local test classes
+WEB-INF/src/test
+
+## Sourcefolder for builds
+result/
+
+## you can use names like db_Suffix.properties für copies
+db*.properties*
+!db.dev.properties
+!db.release.properties
+
+work/SESSIONS.ser*
+
+## generic files to ignore
+Thumbs.db
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
+*.orig
+vssver*.scc
+velocity.log
+*.bak
+
+## Bewegungsdaten
+GUSPrintClient/printClient/print/*.dat*
+*.wrk
+*.pdf
+*.docx
+*.xlsx
+*.doc
+*.xls
+/target/
