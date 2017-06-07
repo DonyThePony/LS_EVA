@@ -12,8 +12,8 @@ User user = new User(username);
 %>
 <body>		
 	<%
-		out.print(user.getNachname());
+		out.print(user.getEmail());
 	%>
-	<a href="logout.jsp">Logout</a>
+	<a href="LogOut.jsp">Logout</a>
 </body>
 </html>

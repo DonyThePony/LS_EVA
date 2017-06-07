@@ -5,6 +5,6 @@
 <title>JSP Page</title>
 </head>
 <body>
-	<h1>Ein Fehler ist aufgetretten!</h1>
+	<h1>Ein Fehler ist aufgetreten!</h1>
 </body>
 </html>

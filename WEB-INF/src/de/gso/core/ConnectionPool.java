@@ -9,11 +9,22 @@ import java.sql.Driver;
 
 public class ConnectionPool {
 	
+//	public static void main(String[] args) throws Exception{
+//		ConnectionPool cP = ConnectionPool.getInstance();
+//		Connection con = cP.getCon();
+//		Statement st = con.createStatement();
+//		ResultSet rs = st.executeQuery("SELECT * FROM USERS");
+//		while(rs.next()){
+//			System.out.println(rs.getString("email"));
+//		}
+//	}
+	
 	private static ConnectionPool instance = null;
 	private String host = "";
 	private String user = "";
 	private String pw = "";
 	private Connection con = null;
+	
 	public ConnectionPool() throws Exception{
 		try {
 			dbConnect("jdbc:sqlserver://"+host, user, pw);
@@ -32,7 +43,7 @@ public class ConnectionPool {
         } 
         try { 
 		    String url = "jdbc:mysql://localhost:3306/eva";
-		    con = DriverManager.getConnection(url, user, db_password); 	    
+		    con = DriverManager.getConnection(url, "root", ""); 	    
         } 
         catch (SQLException sqle) { 
             sqle.printStackTrace(); 
