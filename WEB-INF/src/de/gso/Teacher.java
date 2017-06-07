@@ -1,9 +1,11 @@
 package de.gso;
 
+import java.sql.SQLException;
+
 public class Teacher extends User{
 
-	public Teacher(String vorname, String nachname, String email) {
-		super(vorname, nachname, email);
+	public Teacher(String email) throws Exception {
+		super(email);
 	}
 
 }

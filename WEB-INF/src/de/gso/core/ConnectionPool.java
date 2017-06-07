@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Driver;
 
 public class ConnectionPool {
 	
@@ -13,7 +14,7 @@ public class ConnectionPool {
 	private String user = "";
 	private String pw = "";
 	private Connection con = null;
-	public ConnectionPool(){
+	public ConnectionPool() throws Exception{
 		try {
 			dbConnect("jdbc:sqlserver://"+host, user, pw);
 		} catch (SQLException e) {
@@ -21,17 +22,24 @@ public class ConnectionPool {
 		}
 	}
 	
-	private void dbConnect(String db_connect_string, String db_userid, String db_password) throws SQLException{
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			this.con = DriverManager.getConnection("jdbc:mysql://"+db_connect_string+":port",db_userid, db_password);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	private void dbConnect(String db_connect_string, String db_userid, String db_password) throws Exception{
+
+        try { 
+      	    Class.forName("com.mysql.jdbc.Driver").newInstance(); 
+        } 
+        catch (Exception e) { 
+            e.printStackTrace(); 
+        } 
+        try { 
+		    String url = "jdbc:mysql://localhost:3306/eva";
+		    con = DriverManager.getConnection(url, user, db_password); 	    
+        } 
+        catch (SQLException sqle) { 
+            sqle.printStackTrace(); 
+        } 
 	}
 
-	public static ConnectionPool getInstance(){
+	public static ConnectionPool getInstance() throws Exception{
 		if(instance == null){
 			instance = new ConnectionPool();
 		}

@@ -1,3 +1,4 @@
+<%@page import="de.gso.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"
 	errorPage="Error.jsp"%>
 <html>
@@ -5,10 +6,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>JSP Page</title>
 </head>
+<%
+String username = session.getAttribute("username").toString();
+User user = new User(username);
+%>
 <body>		
 	<%
-		String a = session.getAttribute("username").toString();
-		out.println("Hello " + a);
+		out.print(user.getNachname());
 	%>
 	<a href="logout.jsp">Logout</a>
 </body>

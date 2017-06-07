@@ -12,7 +12,7 @@ private Statement st = null;
 private ResultSet rs = null;
 private ConnectionPool cP;
 
-	public LdapManager(){
+	public LdapManager() throws Exception{
 		cP =  ConnectionPool.getInstance();
 		con = cP.getCon();
 	}
