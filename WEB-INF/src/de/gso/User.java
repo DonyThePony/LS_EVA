@@ -26,7 +26,7 @@ public class User {
 	private void initUser(){
 		try{
 			Connection con = ConnectionPool.getInstance().getCon();
-			String getUserSql = "SELECT * FROM USERS WHERE email ='"+email+"'";
+			String getUserSql = "SELECT * FROM USER WHERE email ='"+email+"'";
 			Statement st = null;
 			ResultSet rs = null;
 			st = con.createStatement();
@@ -58,5 +58,13 @@ public class User {
 	
 	public String getLastname() {
 		return lastname;
+	}
+
+	public String getUserGroup() {
+		return userGroup;
+	}
+
+	public boolean isTeacher() {
+		return isTeacher;
 	}
 }

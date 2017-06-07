@@ -31,4 +31,52 @@ public class Questionnaire {
 	public void delete(){
 		
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getCreator() {
+		return creator;
+	}
+
+	public void setCreator(String creator) {
+		this.creator = creator;
+	}
+
+	public LinkedList<Question> getQuestions() {
+		return questions;
+	}
+
+	public void setQuestions(LinkedList<Question> questions) {
+		this.questions = questions;
+	}
+
+	public String getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(String creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public String getLastEdit() {
+		return lastEdit;
+	}
+
+	public void setLastEdit(String lastEdit) {
+		this.lastEdit = lastEdit;
+	}
 }

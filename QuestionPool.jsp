@@ -34,7 +34,7 @@ User user = new User(username);
 		</tr>
 		<tr>
 		<%
-			for(Question q : Holder.questionList){
+			for(Question q : Holder.privateQuestionList){
 				if(q.getCreatorId() == user.getId()){
 				String questionString = "["+q.getId()+"]"+q.getQuestionText()+"[CreatorID: "+q.getCreatorId()+"]";
 				%>

@@ -3,6 +3,8 @@ package de.gso.core;
 import java.util.LinkedList;
 
 import de.gso.Question;
+import de.gso.Questionnaire;
+import de.gso.Survey;
 import de.gso.User;
 /*
  * Die Holder Klasse ist eine Hilfsklasse welche statisch aufgebaut ist.
@@ -14,4 +16,6 @@ public class Holder {
 	public static LinkedList<Question> questionList = new LinkedList<>();
 	public static LinkedList<Question> privateQuestionList = new LinkedList<>();
 	public static LinkedList<User> userList = new LinkedList<>();
+	public static LinkedList<Survey> openSurverys = new LinkedList<>();
+	public static LinkedList<Questionnaire> questionnaireList = new LinkedList<>();
 }

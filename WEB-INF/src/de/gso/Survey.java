@@ -11,6 +11,8 @@ public class Survey extends Questionnaire {
 	private boolean publicState;
 	private LinkedList<User> completed; // Liste von Usern welche die Umfrage erfolgreich abgeschlossen haben.
 	private LinkedList<User> uncompleted;
+	private Questionnaire questionnaire;
+	private int id;
 	
 	public Survey(){
 		
@@ -26,5 +28,53 @@ public class Survey extends Questionnaire {
 	
 	public void evaluate(){
 		
+	}
+
+	public String getUserGroup() {
+		return userGroup;
+	}
+
+	public void setUserGroup(String userGroup) {
+		this.userGroup = userGroup;
+	}
+
+	public boolean isPublicState() {
+		return publicState;
+	}
+
+	public void setPublicState(boolean publicState) {
+		this.publicState = publicState;
+	}
+
+	public LinkedList<User> getCompleted() {
+		return completed;
+	}
+
+	public void setCompleted(LinkedList<User> completed) {
+		this.completed = completed;
+	}
+
+	public LinkedList<User> getUncompleted() {
+		return uncompleted;
+	}
+
+	public void setUncompleted(LinkedList<User> uncompleted) {
+		this.uncompleted = uncompleted;
+	}
+
+	public Questionnaire getQuestionnaire() {
+		return questionnaire;
+	}
+
+	public void setQuestionnaire(Questionnaire questionnaire) {
+		this.questionnaire = questionnaire;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }

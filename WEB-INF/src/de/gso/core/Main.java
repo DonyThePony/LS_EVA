@@ -7,6 +7,8 @@ import java.sql.Statement;
 
 import de.gso.Answer;
 import de.gso.Question;
+import de.gso.Questionnaire;
+import de.gso.Survey;
 
 
 public class Main {
@@ -17,11 +19,79 @@ public class Main {
 	public void run() throws SQLException {
 		loadQuestions();
 		loadAnswers();
-		for(Question q : Holder.questionList){
-			System.out.println("[PUBLIC] " + q.getQuestionText());
+		loadQuestionnaries();
+		loadSurveys();
+	}
+	//Generiert Fragebögen aus der Datebank
+	private void loadQuestionnaries() throws SQLException {
+		Statement st = null;
+		ResultSet rs = null;
+		Questionnaire q = null;
+		String surveySQL = "SELECT * FROM QUESTIONNAIRE";
+		try{
+			st = ConnectionPool.getInstance().getCon().createStatement();
+			rs = st.executeQuery(surveySQL);
+			while(rs.next()){
+				q = new Questionnaire();
+				q.setId(rs.getInt("questionnaire_id"));
+				q.setCreator(rs.getString("creator"));
+				q.setCreationDate(rs.getString("create_date"));
+				q.setLastEdit(rs.getString("last_edited"));
+				q.setTitle(rs.getString("question_title"));
+				Holder.questionnaireList.add(q);
+			}
+		}catch(Exception ex){
+			ex.printStackTrace();
+		} finally{
+			if(st != null){
+				st.close();
+			}
+			if(rs != null){
+				rs.close();
+			}
 		}
-		for(Question q : Holder.privateQuestionList){
-			System.out.println("[PRIVATE] " + q.getQuestionText());
+	}
+	//Generation einer Liste mit noch offenen Umfragen
+	private void loadSurveys() throws SQLException {
+		Statement st = null;
+		ResultSet rs = null;
+		Survey s = null;
+		String surveySQL = "SELECT * FROM SURVEYS";
+		try{
+			st = ConnectionPool.getInstance().getCon().createStatement();
+			rs = st.executeQuery(surveySQL);
+			while (rs.next()){
+				s = new Survey();
+				if("OPEN".equals(rs.getString("status"))){
+					s.setPublicState(true);					
+				} else {
+					s.setPublicState(false);
+				}
+				s.setUserGroup(rs.getString("user_group"));
+				Questionnaire q = null;
+				for(Questionnaire qTemp : Holder.questionnaireList){
+					if(qTemp.getId() == rs.getInt("questionnaire_id")){
+						q = qTemp;
+					}
+				}
+				s.setQuestionnaire(q);					
+				s.setId(rs.getInt("survey_id"));
+				s.setTitle(q.getTitle());
+			}
+		} catch(Exception ex){
+			ex.printStackTrace();
+		} finally{
+			if(st != null){
+				st.close();
+			}
+			if(rs != null){
+				rs.close();
+			}
+		}
+		if(s != null){
+			if(s.isPublicState()){
+				Holder.openSurverys.add(s);
+			}
 		}
 	}
 	//Generiert eine Liste mit Antworten Welche zu Fragen gehören

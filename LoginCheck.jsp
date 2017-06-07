@@ -7,11 +7,11 @@
 </head>
 <body>
 	<%
-		String username = request.getParameter("username");
+		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		LdapManager ldpM = new LdapManager();
-		if (ldpM.logIn(username, password)) {
-			session.setAttribute("username", username);
+		if (ldpM.logIn(email, password)) {
+			session.setAttribute("email", email);
 			response.sendRedirect("Home.jsp");
 		} else
 			response.sendRedirect("Error.jsp");

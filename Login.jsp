@@ -6,7 +6,7 @@
 </head>
 <body>
 	<form action="LoginCheck.jsp" method="post">
-		Email:<input type="text" name="username">
+		Email:<input type="text" name="email">
 		Password:<input type="password" name="password"> <br />
 		<input type="submit" value="Submit">
 	</form>
