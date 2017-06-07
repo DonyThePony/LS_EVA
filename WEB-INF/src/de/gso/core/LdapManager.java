@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+/*
+ * Unser LDAP Simulator.
+ * GGf. kann hier eine zukünftige LDAP-Anbindung reallisiert werden.
+ */
 public class LdapManager {
 	
 private Connection con = null;

@@ -1,5 +1,8 @@
 package de.gso;
 
+/*
+ * Klasse für eine Antwort. Steht in Beziehung mit einer Frage.
+ */
 public class Answer {
 
 	private String text;

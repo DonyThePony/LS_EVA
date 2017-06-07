@@ -15,5 +15,6 @@ User user = new User(username);
 		out.print(user.getEmail());
 	%>
 	<a href="LogOut.jsp">Logout</a>
+	<a href="QuestionPool.jsp">Fragepool anzeigen</a>
 </body>
 </html>

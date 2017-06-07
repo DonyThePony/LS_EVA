@@ -4,7 +4,10 @@ import java.sql.SQLException;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-
+/*
+ * Wird vom Tomcatserver beim Start und Beenden des Services genutzt.
+ * Und dient als Startschuss
+ */
 public class MyServletContextListener implements ServletContextListener {
 
 	@Override

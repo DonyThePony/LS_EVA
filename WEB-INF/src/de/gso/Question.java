@@ -2,6 +2,10 @@ package de.gso;
 
 import de.gso.core.Holder;
 
+/*
+ * Die Frage. Ein Bestandteil eines Fragebogens.
+ * Einem Fragebogen können X Fragen zugeordnet sein.
+ */
 public class Question {
 
 	private int id;

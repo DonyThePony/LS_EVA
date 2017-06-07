@@ -6,18 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Driver;
-
+/*
+ * Der ConnectionPool ist nach einem Singleton-Muster aufgebaut.
+ * Der Vorteil hier ist dass nur mit einer Connection zur Datenbank gearbeitet wird.
+ * Das hat den Effekt dass der Datenverkehr hier um einiges Verringert wird,
+ * ohne einen groﬂen Abstrich in der Performance zu machen.
+ * 
+ */
 public class ConnectionPool {
-	
-//	public static void main(String[] args) throws Exception{
-//		ConnectionPool cP = ConnectionPool.getInstance();
-//		Connection con = cP.getCon();
-//		Statement st = con.createStatement();
-//		ResultSet rs = st.executeQuery("SELECT * FROM USERS");
-//		while(rs.next()){
-//			System.out.println(rs.getString("email"));
-//		}
-//	}
 	
 	private static ConnectionPool instance = null;
 	private String host = "";
@@ -43,7 +39,7 @@ public class ConnectionPool {
         } 
         try { 
 		    String url = "jdbc:mysql://localhost:3306/eva";
-		    con = DriverManager.getConnection(url, "root", ""); 	    
+		    con = DriverManager.getConnection(url, "root", "Dr20075Plyr"); 	    
         } 
         catch (SQLException sqle) { 
             sqle.printStackTrace(); 
