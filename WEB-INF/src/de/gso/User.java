@@ -1,19 +1,38 @@
 package de.gso;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import de.gso.core.ConnectionPool;
+
 public class User {
 	private String vorname;
 	private String nachname;
 	private String email;
+	private String userGroup;
+	private int id;
 	
-	
-	/*
-	 * User Klasse mit simplen Getter Methoden. Dient als Datencontainer.
-	 * 
-	 */
-	public User(String vorname, String nachname, String email){
-		this.vorname = vorname;
-		this.nachname = nachname;
+	public User(String email) throws Exception{
 		this.email = email;
+		initUser();
+	}
+
+	private void initUser(){
+		try{
+			Connection con = ConnectionPool.getInstance().getCon();
+			String getUserSql = "SELECT * FROM USERS WHERE email ='"+email+"'";
+			Statement st = null;
+			ResultSet rs = null;
+			st = con.createStatement();
+			rs = st.executeQuery(getUserSql);
+			if(rs.next()){
+				this.email = rs.getString("email");
+			}
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
 	}
 
 	public String getVorname() {
@@ -26,5 +45,9 @@ public class User {
 
 	public String getEmail() {
 		return email;
+	}
+	
+	public int getId(){
+		return id;
 	}
 }
