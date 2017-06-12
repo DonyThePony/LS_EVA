@@ -3,9 +3,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JSP Page</title>
+<title>Umfragetool EVA Projekt</title>
 </head>
-<body>		
+<body>	
 	<%
 		String a = session.getAttribute("username").toString();
 		out.println("Hello " + a);
