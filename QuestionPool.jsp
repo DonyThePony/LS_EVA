@@ -9,8 +9,8 @@
 <title>Frage-Pool</title>
 </head>
 <%
-String username = session.getAttribute("username").toString();
-User user = new User(username);
+String email = session.getAttribute("email").toString();
+User user = new User(email);
 %>
 <body>		
 	<table style = float:left;>

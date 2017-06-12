@@ -23,7 +23,7 @@ private ConnectionPool cP;
 	public boolean logIn(String email, String pw){
 		boolean login = false;
 		
-		if(email.equals("test") && pw.equals("test")){
+		if(email.equals("fia5bsaracino@gso-koeln.de") && pw.equals("test")){
 			login = true;
 		}
 		

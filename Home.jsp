@@ -9,24 +9,33 @@
 <title>JSP Page</title>
 </head>
 <%
-String username = session.getAttribute("username").toString();
-User user = new User(username);
+String email = session.getAttribute("email").toString();
+User user = new User(email);
 %>
 <body>		
+	<p>Wilkommen <%=user.getFirstname() + " " +  user.getLastname()%></p>
 	<%
-		out.print(user.getFirstname());
-		//Check wenn User offene Umfragen hat:
-		for(Survey s : Holder.openSurverys){
-			if(s.isPublicState()){
-				if(s.getUserGroup().equals(user.getUserGroup())){
-					//TODO: Table. Answered Surveys From User
-					%>
-						<p>Umfrage[<%=s.getId()%>]: <%=s.getTitle()%></p>
-					<%
-				}
+		if(user.isTeacher()){
+			//Show open Surveys
+			%>
+			<table>
+				<tr>
+					<th>Offene Umfrage</th>
+				</tr>
+				<tr>
+			<%
+			for(Survey s : Holder.openSurverys){
+				//TODO: If Creator ID = Surver.CreatorId
+				%>
+					<td><%=s.getTitle()+"[ID:"+s.getId()+"]"%></td>
+				<%
 			}
+			%>
+				</tr>
+			</table>
+		<%
 		}
-	%>
+	 	%>
 	
 	<p><a href="LogOut.jsp">Logout</a></p>
 	<p><a href="QuestionPool.jsp">Fragepool anzeigen</a></p>

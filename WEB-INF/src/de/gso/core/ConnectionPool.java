@@ -39,7 +39,7 @@ public class ConnectionPool {
         } 
         try { 
 		    String url = "jdbc:mysql://localhost:3306/eva";
-		    con = DriverManager.getConnection(url, "root", "Dr20075Plyr"); 	    
+		    con = DriverManager.getConnection(url, "root", ""); 	    
         } 
         catch (SQLException sqle) { 
             sqle.printStackTrace(); 

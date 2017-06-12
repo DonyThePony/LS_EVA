@@ -13,6 +13,7 @@ public class Survey extends Questionnaire {
 	private LinkedList<User> uncompleted;
 	private Questionnaire questionnaire;
 	private int id;
+	private int creatorID;
 	
 	public Survey(){
 		
@@ -76,5 +77,19 @@ public class Survey extends Questionnaire {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	/**
+	 * @return the creatorID
+	 */
+	public int getCreatorID() {
+		return creatorID;
+	}
+
+	/**
+	 * @param creatorID the creatorID to set
+	 */
+	public void setCreatorID(int creatorID) {
+		this.creatorID = creatorID;
 	}
 }
