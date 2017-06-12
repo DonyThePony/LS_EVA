@@ -6,14 +6,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JSP Page</title>
+<title>Umfragetool EVA Projekt</title>
 </head>
+<<<<<<< HEAD
 <%
 String email = session.getAttribute("email").toString();
 User user = new User(email);
 %>
 <body>		
 	<p>Wilkommen <%=user.getFirstname() + " " +  user.getLastname()%></p>
+=======
+<body>	
+>>>>>>> refs/heads/Template
 	<%
 		if(user.isTeacher()){
 			//Show open Surveys
