@@ -15,6 +15,7 @@ public class Questionnaire {
 	private LinkedList<Question> questions;
 	private String creationDate;
 	private String lastEdit;
+	private int creatorID;
 	
 	public Questionnaire(){
 		
@@ -78,5 +79,19 @@ public class Questionnaire {
 
 	public void setLastEdit(String lastEdit) {
 		this.lastEdit = lastEdit;
+	}
+
+	/**
+	 * @return the creatorID
+	 */
+	public int getCreatorID() {
+		return creatorID;
+	}
+
+	/**
+	 * @param creatorID the creatorID to set
+	 */
+	public void setCreatorID(int creatorID) {
+		this.creatorID = creatorID;
 	}
 }

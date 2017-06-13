@@ -34,7 +34,7 @@ public class Main {
 			while(rs.next()){
 				q = new Questionnaire();
 				q.setId(rs.getInt("questionnaire_id"));
-				q.setCreator(rs.getString("creator"));
+				q.setCreatorID(rs.getInt("creator_id"));
 				q.setCreationDate(rs.getString("create_date"));
 				q.setLastEdit(rs.getString("last_edited"));
 				q.setTitle(rs.getString("question_title"));
