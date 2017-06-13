@@ -11,7 +11,6 @@ import java.util.LinkedList;
 public class Questionnaire {
 	private int id;
 	private String title;
-	private String creator;
 	private LinkedList<Question> questions;
 	private String creationDate;
 	private String lastEdit;
@@ -47,14 +46,6 @@ public class Questionnaire {
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public String getCreator() {
-		return creator;
-	}
-
-	public void setCreator(String creator) {
-		this.creator = creator;
 	}
 
 	public LinkedList<Question> getQuestions() {

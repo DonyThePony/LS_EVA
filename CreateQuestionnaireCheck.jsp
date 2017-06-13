@@ -53,10 +53,6 @@ if(request.getParameter("question") != null){
 				session.setAttribute("questionaireTitle", request.getParameter("questionaireTitle"));
 				response.sendRedirect("CreateQuestionnaireCheck.jsp");
 			}
-			if("Frage bestimmen".equals(request.getParameter("submit"))){
-				session.setAttribute("questionaireTitle", request.getParameter("questionaireTitle"));
-				response.sendRedirect("AddQuestionToQuestionnaire.jsp");
-			}
 		%>
 			<div class="login_container">	
 				<div class="login_form">
@@ -79,8 +75,7 @@ if(request.getParameter("question") != null){
 							i++;
 						}
 					%>	
-					<br><input type="submit" name="submit" value="Frage bestimmen">
-					<input type="submit" name="submit" value="Fertig">
+					<input type="submit" name="submit" value="speichern">
 					</form>
 				</div>
 			</div>
