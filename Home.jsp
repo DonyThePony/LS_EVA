@@ -30,7 +30,7 @@ User user = new User(email);
 				//TODO: If Creator ID = Surver.CreatorId
 				%>
 				<tr>
-					<td><%=s.getTitle()+"[ID:"+s.getId()+"]"%></td>
+					<td><a href="TakeSurvey.jsp?sId=<%=s.getId()%>"><%=s.getTitle()+"[ID:"+s.getId()+"]"%></a></td>
 				</tr>
 				<%
 			}

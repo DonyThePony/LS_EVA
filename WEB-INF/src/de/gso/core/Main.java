@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
 
 import de.gso.Answer;
 import de.gso.Question;
@@ -38,8 +39,28 @@ public class Main {
 				q.setCreationDate(rs.getString("create_date"));
 				q.setLastEdit(rs.getString("last_edited"));
 				q.setTitle(rs.getString("question_title"));
+				
+				//Create Questionlist for Questionnaire
+				String sql = "SELECT question_id FROM questionquestionnaire WHERE questionnaire_id = "+q.getId();
+				LinkedList<Question> qList = new LinkedList<>();
+				Statement st2 = ConnectionPool.getInstance().getCon().createStatement();
+				ResultSet rs2 = st2.executeQuery(sql);
+				while(rs2.next()){
+					for(Question qT : Holder.questionList){
+						if(qT.getId() == rs2.getInt("question_id")){
+							qList.add(qT);
+						}
+					}
+					for(Question qT : Holder.privateQuestionList){
+						if(qT.getId() == rs2.getInt("question_id")){
+							qList.add(qT);
+						}
+					}
+				}
+				q.setQuestions(qList);
 				Holder.questionnaireList.add(q);
 			}
+	
 		}catch(Exception ex){
 			ex.printStackTrace();
 		} finally{
@@ -107,6 +128,7 @@ public class Main {
 				a.setId(rs.getInt("answer_id"));
 				a.setQuestion(Question.getQuestion(rs.getInt("question_id")));
 				a.setText(rs.getString("answer_text"));
+				Holder.answerList.add(a);
 			}
 		} catch(Exception ex){
 			ex.printStackTrace();
@@ -141,6 +163,7 @@ public class Main {
 				} else {
 					Holder.privateQuestionList.add(q);
 				}
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

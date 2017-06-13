@@ -2,6 +2,7 @@ package de.gso.core;
 
 import java.util.LinkedList;
 
+import de.gso.Answer;
 import de.gso.Question;
 import de.gso.Questionnaire;
 import de.gso.Survey;
@@ -18,4 +19,5 @@ public class Holder {
 	public static LinkedList<User> userList = new LinkedList<>();
 	public static LinkedList<Survey> openSurverys = new LinkedList<>();
 	public static LinkedList<Questionnaire> questionnaireList = new LinkedList<>();
+	public static LinkedList<Answer> answerList = new LinkedList<>();
 }
