@@ -1,0 +1,42 @@
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+input:-webkit-autofill, 
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: green;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+h1 {
+	text-align: center;
+}
+
+.login_container {
+	display: block;
+	padding: 20px;
+	margin-top: 20%;
+	margin: 20px auto;
+	background-color: #F6F9FC;
+	width: 400px;
+    border-radius: 5%;
+}
+
+.login_form {
+	padding: 10px; 
+	line-height: 1.9;
+}
+
+.login_form span {
+	font-weight: 500;
+}
+
+.login_form input {
+	margin-bottom: 20px;
+	width: 100%;
+}
