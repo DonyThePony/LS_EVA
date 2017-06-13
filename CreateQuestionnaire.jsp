@@ -34,6 +34,7 @@ if(session.getAttribute("qA") == null){
 	session.setAttribute("qA", qA);
 } else {
 	qA = (Questionnaire)session.getAttribute("qA");
+	qA.setTitle(String.valueOf(session.getAttribute("questionaireTitle")));
 }
 if(request.getParameter("question") != null){
 	int qID = Integer.parseInt(String.valueOf(request.getParameter("question")));
@@ -62,7 +63,7 @@ if(request.getParameter("question") != null){
 				<div class="login_form">
 					<form action="CreateQuestionnaire.jsp" method="post">
 					<%
-						if(qA.getTitle() != null){
+						if(qA.getTitle() != null && !qA.getTitle().equals("null")){
 							%>
 								Fragebogen Titel<input type="text" name="questionaireTitle" value="<%=qA.getTitle()%>">							
 							<%

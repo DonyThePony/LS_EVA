@@ -25,24 +25,26 @@ User user = new User(email);
 				<tr>
 					<th>Offene Umfrage</th>
 				</tr>
-				<tr>
 			<%
 			for(Survey s : Holder.openSurverys){
 				//TODO: If Creator ID = Surver.CreatorId
 				%>
+				<tr>
 					<td><%=s.getTitle()+"[ID:"+s.getId()+"]"%></td>
+				</tr>
 				<%
 			}
 			%>
-				</tr>
 			</table>
 		<%
 		}
 	 	%>
 	
 	<p><a href="LogOut.jsp">Logout</a></p>
-	<p><a href="QuestionPool.jsp">Fragepool anzeigen</a></p>	
+	<p><a href="QuestionPool.jsp">Fragepool anzeigen</a></p>
+	<p><a href="Questionnaire.jsp">Meine Fragebögen</a></p>	
 	<p><a href="CreateQuestionnaire.jsp">Fragebogen erstellen</a></p>
+	<p><a href="CreateSurvey.jsp">Umfrage erstellen</a></p>
 	
 </body>
 </html>

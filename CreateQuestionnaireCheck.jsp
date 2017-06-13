@@ -1,3 +1,4 @@
+<%@page import="de.gso.core.ConnectionPool"%>
 <%@page import="de.gso.Questionnaire"%>
 <%@page import="de.gso.Question"%>
 <%@page import="java.util.Date" %>
@@ -9,6 +10,7 @@
 <%@page import="de.gso.User"%>
 <%@page import="de.gso.Survey"%>
 <%@page import="de.gso.core.Holder"%>
+<%@page import="java.sql.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"
 	errorPage="Error.jsp"%>
 <link rel="stylesheet" href="Styles/Main.css">
@@ -34,6 +36,7 @@ if(session.getAttribute("qA") == null){
 	session.setAttribute("qA", qA);
 } else {
 	qA = (Questionnaire)session.getAttribute("qA");
+	qA.setTitle(String.valueOf(session.getAttribute("questionaireTitle")));
 }
 if(request.getParameter("question") != null){
 	int qID = Integer.parseInt(String.valueOf(request.getParameter("question")));
@@ -49,14 +52,44 @@ if(request.getParameter("question") != null){
 <body>	
 	<%
 		if(user.isTeacher()){
-			if("Fertig".equals(request.getParameter("submit"))){
+			if("speichern".equals(request.getParameter("submit"))){
+				Holder.questionnaireList.add(qA);
+				try{
+					//Fragebogen erstellen.
+					Statement st = ConnectionPool.getInstance().getCon().createStatement();
+					String sqlInsertQuestionnaire = "INSERT INTO questionnaire (questionnaire_id, creator_id, create_date, last_edited, question_title)"
+							+" VALUES("
+									+"null,"
+									+user.getId()+","
+									+"'"+qA.getCreationDate()+"',"
+									+"'"+qA.getLastEdit()+"',"
+									+"'"+qA.getTitle()+"')";
+					st.execute(sqlInsertQuestionnaire);
+					//Antworten mit Fragebogen verknüpfen.
+					ResultSet rs = st.getGeneratedKeys();
+					if(rs.next()){
+						int qID = rs.getInt(1);
+						for(Question q : qA.getQuestions()){
+							String sqlInsetQuestionQuestionnaire = "INSERT INTO questionquestionnaire (questionnaire_id, question_id)"
+									+" VALUES("
+											+qID+", "
+											+q.getId()+")";
+							st.execute(sqlInsetQuestionQuestionnaire);
+						}
+					}
+					session.removeAttribute("qA");
+					session.removeAttribute("questionaireTitle");
+					response.sendRedirect("Home.jsp");
+				} catch(Exception ex){
+					ex.printStackTrace();	
+				}
 				session.setAttribute("questionaireTitle", request.getParameter("questionaireTitle"));
 				response.sendRedirect("CreateQuestionnaireCheck.jsp");
 			}
 		%>
-			<div class="login_container">	
+			<div class="login_container">
 				<div class="login_form">
-					<form action="CreateQuestionnaire.jsp" method="post">
+					<form action="CreateQuestionnaireCheck.jsp" method="post">
 					<%
 						if(qA.getTitle() != null){
 							%>
