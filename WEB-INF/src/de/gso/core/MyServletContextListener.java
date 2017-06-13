@@ -18,6 +18,7 @@ public class MyServletContextListener implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent arg0) {
+		System.out.println("Der Stein kommt ins Rollen");
 		Main main = new Main();
 		try {
 			main.run();

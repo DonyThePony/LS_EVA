@@ -1,5 +1,7 @@
 package de.gso;
 
+import java.util.LinkedList;
+
 import de.gso.core.Holder;
 
 /*
@@ -13,6 +15,7 @@ public class Question {
 	private String question_type;
 	private boolean isPrivate;
 	private int creatorId;
+	public LinkedList<Answer> answerList = new LinkedList<>();
 	/**
 	 * @return the id
 	 */

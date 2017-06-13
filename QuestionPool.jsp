@@ -17,35 +17,38 @@ User user = new User(email);
 		<tr>
 			<th>Öffentliche Fragen</th>
 		</tr>
-		<tr>
 		<%
 			for(Question q : Holder.questionList){
 				String questionString = "["+q.getId()+"]"+q.getQuestionText()+"[CreatorID: "+q.getCreatorId()+"]";
 				%>
+				<tr>
 					<td><%=questionString%></td>
+				</tr>
 				<%	
 			}
 		%>
-		</tr>
 	</table>
 	<table style = float:Center;>
 		<tr>
 			<th>Deine Privaten Fragen</th>
 		</tr>
-		<tr>
 		<%
 			for(Question q : Holder.privateQuestionList){
 				if(q.getCreatorId() == user.getId()){
 				String questionString = "["+q.getId()+"]"+q.getQuestionText()+"[CreatorID: "+q.getCreatorId()+"]";
 				%>
+				<tr>
 					<td><%=questionString%></td>
+				</tr>
 				<%	
 				}
 			}
 		%>
-		</tr>
 	</table>
 <br>
+<br>
+<p><a href="CreateQuestion.jsp">Frage hinzufügen</a></p>
+<p><a href="Home.jsp">Home</a></p>
 <p><a href="LogOut.jsp">Logout</a></p>
 </body>
 </html>

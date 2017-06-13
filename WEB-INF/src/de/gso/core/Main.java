@@ -62,7 +62,7 @@ public class Main {
 			rs = st.executeQuery(surveySQL);
 			while (rs.next()){
 				s = new Survey();
-				if("OPEN".equals(rs.getString("status"))){
+				if("O".equals(rs.getString("status"))){
 					s.setPublicState(true);					
 				} else {
 					s.setPublicState(false);

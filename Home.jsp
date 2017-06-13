@@ -39,6 +39,8 @@ User user = new User(email);
 	 	%>
 	
 	<p><a href="LogOut.jsp">Logout</a></p>
-	<p><a href="QuestionPool.jsp">Fragepool anzeigen</a></p>
+	<p><a href="QuestionPool.jsp">Fragepool anzeigen</a></p>	
+	<p><a href="CreateQuestionnaire.jsp">Fragebogen erstellen</a></p>
+	
 </body>
 </html>

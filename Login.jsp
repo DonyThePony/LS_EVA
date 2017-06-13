@@ -12,7 +12,7 @@
 	<div class="login_form">
 		<form action="LoginCheck.jsp" method="post">
 			<span class="mail"> E-Mail </span><br>
-			<input type="text" name="username"> <br />
+			<input type="text" name="email"> <br />
 			<span class="password"> Passwort </span><br>
 			<input type="password" name="password"> <br />
 			<input type="submit" class="btn btn-primary" value="Einloggen">
