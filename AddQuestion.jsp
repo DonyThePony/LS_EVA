@@ -52,11 +52,6 @@ Question q = new Question();
 			}
 			q.setQuestion_type(questionType);
 			q.setQuestionText(questionTitle);
-			if(q.isPrivate()){
-				Holder.privateQuestionList.add(q);
-			} else {
-				Holder.questionList.add(q);
-			}
 			questionID = q.getId();
 		}
 		} catch(Exception ex){
@@ -83,7 +78,13 @@ Question q = new Question();
 						a.setQuestion(q);
 						a.setText(answeres[i]);
 						q.answerList.add(a);
+						Holder.answerList.add(a);
 					}
+				}
+				if(q.isPrivate()){
+					Holder.privateQuestionList.add(q);
+				} else {
+					Holder.questionList.add(q);
 				}
 			} catch(Exception ex){
 				ex.printStackTrace();
