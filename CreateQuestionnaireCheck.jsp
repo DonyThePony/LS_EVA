@@ -76,6 +76,7 @@ if(request.getParameter("question") != null){
 											+q.getId()+")";
 							st.execute(sqlInsetQuestionQuestionnaire);
 						}
+						qA.setId(qID);
 					}
 					session.removeAttribute("qA");
 					session.removeAttribute("questionaireTitle");

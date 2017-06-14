@@ -98,6 +98,11 @@ public class Main {
 				s.setQuestionnaire(q);					
 				s.setId(rs.getInt("survey_id"));
 				s.setTitle(q.getTitle());
+				if(s != null){
+					if(s.isPublicState()){
+						Holder.openSurverys.add(s);
+					}
+				}
 			}
 		} catch(Exception ex){
 			ex.printStackTrace();
@@ -107,11 +112,6 @@ public class Main {
 			}
 			if(rs != null){
 				rs.close();
-			}
-		}
-		if(s != null){
-			if(s.isPublicState()){
-				Holder.openSurverys.add(s);
 			}
 		}
 	}
