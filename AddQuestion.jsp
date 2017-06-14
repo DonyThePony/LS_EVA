@@ -84,6 +84,7 @@ Question q = new Question();
 						a.setText(answeres[i]);
 						q.answerList.add(a);
 					}
+					response.sendRedirect("Home.jsp");
 				}
 			} catch(Exception ex){
 				ex.printStackTrace();
