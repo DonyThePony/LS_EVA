@@ -5,6 +5,7 @@
 <title>JSP Page</title>
 </head>
 <body>
+	<%//Fehler Seite %>
 	<h1>Ein Fehler ist aufgetreten!</h1>
 </body>
 </html>

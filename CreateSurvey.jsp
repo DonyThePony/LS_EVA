@@ -19,7 +19,7 @@ User user = new User(email);
 %>
 <body>	
 	<%
-		if(user.isTeacher()){
+		if(user.isTeacher()){ //Eine Umfrage kann nur durch einen Lehrer erstellt/veröffentlicht werden.
 			%>
 	<div class="login_container">	
 		<div class="login_form">
@@ -44,7 +44,7 @@ User user = new User(email);
 			</div>
 		</div>
 			<%
-		} else {
+		} else { //Wenn kein Lehrer dann Fehler zurückgeben und zur Homepage weiterleiten
 			%>
 				<script>
 					alert("Du bist kein Lehrer.");

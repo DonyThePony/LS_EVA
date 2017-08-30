@@ -27,6 +27,7 @@ User user = new User(email);
 <body>	
 	<%
 		if(user.isTeacher()){
+			//Prüfung und Sicherung auf der Datenbank
 			int sID = Integer.parseInt(String.valueOf(request.getParameter("questionnaire")));
 			Survey s = null;
 			for(Questionnaire q : Holder.questionnaireList){
@@ -54,6 +55,7 @@ User user = new User(email);
 				if(!s.isPublicState()){
 					state = "C";
 				}
+				//Umfrage wird in Datenbank gesichert.
 				String sqlInserSurvey= "INSERT INTO surveys (survey_id, questionnaire_id, status, user_group)"
 						+ " VALUES("
 								+"null, "

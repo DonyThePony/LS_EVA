@@ -8,6 +8,7 @@
 </head>
 <body>
 <h1> Umfragetool - Login </h1>
+<%// Login Page HTML aufbau.%>
 <div class="login_container">	
 	<div class="login_form">
 		<form action="LoginCheck.jsp" method="post">

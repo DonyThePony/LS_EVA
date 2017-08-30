@@ -19,6 +19,8 @@
 <title>Umfragetool EVA Projekt</title>
 </head>
 <%
+//Erstellen eines Fragebogens.
+//Fragenpool vorbereiten.
 String email = session.getAttribute("email").toString();
 User user = new User(email);
 Questionnaire qA = new Questionnaire();
@@ -49,7 +51,7 @@ if(request.getParameter("question") != null){
 %>
 <body>	
 	<%
-		if(user.isTeacher()){
+		if(user.isTeacher()){ //Prüfung ob User ein Lehrer ist.
 			if("Fertig".equals(request.getParameter("submit"))){
 				session.setAttribute("questionaireTitle", request.getParameter("questionaireTitle"));
 				response.sendRedirect("CreateQuestionnaireCheck.jsp");
@@ -86,7 +88,7 @@ if(request.getParameter("question") != null){
 				</div>
 			</div>
 		<%
-		} else {
+		} else { //Fehlermeldung zurückgeben und an die Homseite weiterleiten.
 			%>
 				<script>
 					alert("Du bist kein Lehrer.");

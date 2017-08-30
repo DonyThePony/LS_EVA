@@ -7,6 +7,7 @@
 </head>
 <body>
 	<%
+		//Prüfung der Log-In Daten
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		LdapManager ldpM = new LdapManager();

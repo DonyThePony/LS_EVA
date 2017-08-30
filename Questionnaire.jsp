@@ -18,6 +18,7 @@ User user = new User(email);
 			<th>Meine Fragebögen</th>
 		</tr>
 		<%
+			//Umfragen Laden. Aus einer Liste.
 			for(Questionnaire q : Holder.questionnaireList){
 				if(q.getCreatorID() == user.getId()){
 					String questionString = "["+q.getId()+"]"+q.getTitle()+"[CreatorID: "+q.getCreatorID()+"]";

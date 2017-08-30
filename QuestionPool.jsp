@@ -18,6 +18,7 @@ User user = new User(email);
 			<th>Öffentliche Fragen</th>
 		</tr>
 		<%
+			//Alle Öffentlichen Fragen werden für den Fragen-Pool geladen.
 			for(Question q : Holder.questionList){
 				String questionString = "["+q.getId()+"]"+q.getQuestionText()+"[CreatorID: "+q.getCreatorId()+"]";
 				%>
@@ -33,6 +34,7 @@ User user = new User(email);
 			<th>Deine Privaten Fragen</th>
 		</tr>
 		<%
+			//Laden der Privaten Fragen des Users
 			for(Question q : Holder.privateQuestionList){
 				if(q.getCreatorId() == user.getId()){
 				String questionString = "["+q.getId()+"]"+q.getQuestionText()+"[CreatorID: "+q.getCreatorId()+"]";

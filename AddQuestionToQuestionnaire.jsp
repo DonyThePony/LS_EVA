@@ -18,15 +18,16 @@ User user = new User(email);
 %>
 <body>	
 	<%
+		// Fragen für Lehrer Laden
 		if(user.isTeacher()){
 			%>
 				<p>Frage hinzufügen</p>
 				<form action="CreateQuestionnaire.jsp" method="post">
 				    <select name="question">
 				    <%
-						LinkedList<Question> qList = new LinkedList<>();
+						LinkedList<Question> qList = new LinkedList<>(); 
 				    	qList.addAll((LinkedList<Question>)Holder.privateQuestionList.clone());
-				    	qList.addAll((LinkedList<Question>)Holder.questionList.clone());
+				    	qList.addAll((LinkedList<Question>)Holder.questionList.clone()); // Laden von allen Fragen
 				    	for(Question q : qList){
 				    		if(q.isPrivate()){
 				    			if(q.getCreatorId() == user.getId()){
@@ -45,7 +46,7 @@ User user = new User(email);
 					<br><input type="submit" name="submit" value="weiter">
 				</form>
 			<%
-		} else {
+		} else { // Wenn kein Lehrer :=> Fehler zurück geben und auf Home seite weiterleiten.
 			%>
 				<script>
 					alert("Du bist kein Lehrer.");

@@ -16,6 +16,7 @@ private ResultSet rs = null;
 private ConnectionPool cP;
 
 	public LdapManager() throws Exception{
+		//Hier wird eine Instanz der Connection angefordert um mit der Datenbank zu kommunizieren.
 		cP =  ConnectionPool.getInstance();
 		con = cP.getCon();
 	}
@@ -23,6 +24,8 @@ private ConnectionPool cP;
 	public boolean logIn(String email, String pw){
 		boolean login = false;
 		
+		//Aktuell gibt es nur einen Log-In zugang.
+		//Dieser wird hier simuliert.
 		if(email.equals("fia5bsaracino@gso-koeln.de") && pw.equals("test")){
 			login = true;
 		}
@@ -30,6 +33,7 @@ private ConnectionPool cP;
 		return login;
 	}
 	
+	//Dient zu identifizierung ob ein User ein Lehrer ist.
 	public boolean isTeacher(String email) throws SQLException{
 		boolean isTeacher = false;
 		String sql = "SELECT isTeacher FROM USERS WHERE email = '" + email+"'";

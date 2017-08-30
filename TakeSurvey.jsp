@@ -22,6 +22,7 @@
 	<div class="login_form">
 		<form action="CheckSurvey.jsp" method="post">
 			<%
+				// Die Fragen aus der Umfrage laden.
 				for(Question q : s.getQuestionnaire().getQuestions()){
 					if(q.getQuestion_type().equals("M")) // Wenn MultiplyChoice Frage
 					%>

@@ -18,7 +18,7 @@ public class MyServletContextListener implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent arg0) {
-		System.out.println("Der Stein kommt ins Rollen");
+		//Der Dienst wird hiermit initialisiert
 		Main main = new Main();
 		try {
 			main.run();

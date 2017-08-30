@@ -20,7 +20,7 @@ String questionPublicState = String.valueOf(session.getAttribute("questionPublic
 %>
 <body>	
 	<%
-		if("M".equals(questionType)){
+		if("M".equals(questionType)){ //Multiplychoice
 			if(request.getParameter("target") != null){ //Übergabe an AddQuestion.jsp
 				String[] answeres = new String[Integer.parseInt(request.getParameter("amount")) - 1];
 				int j = 1;

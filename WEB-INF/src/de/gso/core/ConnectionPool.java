@@ -2,10 +2,7 @@ package de.gso.core;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.Driver;
 /*
  * Der ConnectionPool ist nach einem Singleton-Muster aufgebaut.
  * Der Vorteil hier ist dass nur mit einer Connection zur Datenbank gearbeitet wird.
@@ -29,11 +26,12 @@ public class ConnectionPool {
 		}
 	}
 	
+	// Baut die Connection auf. Aktuell Hard kodiert. Möglichkeit besteht dies in eine Config-Datei auszulagern
 	private void dbConnect(String db_connect_string, String db_userid, String db_password) throws Exception{
 
-        try { 
+        try {
       	    Class.forName("com.mysql.jdbc.Driver").newInstance(); 
-        } 
+        } //Klasse instanziieren für den DB-Driver
         catch (Exception e) { 
             e.printStackTrace(); 
         } 
@@ -46,6 +44,10 @@ public class ConnectionPool {
         } 
 	}
 
+	//Singelton pattern wird verwendet dass nur eine Instanz von Connection aktuell existiert.
+	//Dies hat den Vorteil das die Zugriffe auf die Datenbank beschränkt werden.
+	//Bei bedarf kann dies auch ausgelagert werden dass eine Maximale anzahl von X Connections
+	//Allen Usern zur verfügung stehen.
 	public static ConnectionPool getInstance() throws Exception{
 		if(instance == null){
 			instance = new ConnectionPool();

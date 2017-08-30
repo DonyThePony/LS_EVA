@@ -21,6 +21,7 @@
 <title>Umfragetool EVA Projekt</title>
 </head>
 <%
+//Prüfung und Sicherung auf der Datenbank.
 String email = session.getAttribute("email").toString();
 User user = new User(email);
 Questionnaire qA = new Questionnaire();
@@ -51,7 +52,7 @@ if(request.getParameter("question") != null){
 %>
 <body>	
 	<%
-		if(user.isTeacher()){
+		if(user.isTeacher()){ //Nur erlauben wenn User Lehrer ist.
 			if("speichern".equals(request.getParameter("submit"))){
 				Holder.questionnaireList.add(qA);
 				try{
@@ -114,7 +115,7 @@ if(request.getParameter("question") != null){
 				</div>
 			</div>
 		<%
-		} else {
+		} else { //Wenn kein Lehrer Fehler zurückgeben und auf Home weiterleiten.
 			%>
 				<script>
 					alert("Du bist kein Lehrer.");
